@@ -50,7 +50,7 @@
    </head>
    <body class="bg-background-light dark:bg-background-dark font-display">
       <div class="relative flex min-h-screen w-full flex-col group/design-root overflow-x-hidden">
-                 <header class="fixed top-0 left-0 right-0 z-50 bg-background-light/80 dark:bg-background-dark/80 backdrop-blur-sm">
+                 <header class="fixed top-0 left-0 right-0 z-50 bg-background-light/80 dark:bg-background-dark/80 backdrop-blur-sm shadow-sm">
   <div class="container mx-auto px-4 sm:px-6 lg:px-8">
     <div class="flex items-center justify-between h-16">
       <!-- Logo + Name -->
@@ -66,35 +66,47 @@
 
       <!-- Desktop Menu -->
       <div class="hidden md:flex items-center gap-8">
-        <a class="text-gray-600 dark:text-gray-300 hover:text-primary dark:hover:text-primary text-sm font-medium" href="index.html">Home</a>
-        <a class="text-gray-600 dark:text-gray-300 hover:text-primary dark:hover:text-primary text-sm font-medium" href="profile.html">About</a>
-        <a class="text-gray-600 dark:text-gray-300 hover:text-primary dark:hover:text-primary text-sm font-medium" href="projects.html">Projects</a>
-        <a class="text-gray-600 dark:text-gray-300 hover:text-primary dark:hover:text-primary text-sm font-medium" href="certificates.html">Certificates</a>
-        <a class="text-gray-600 dark:text-gray-300 hover:text-primary dark:hover:text-primary text-sm font-medium" href="skills.html">Skills</a>
-        <a class="text-gray-600 dark:text-gray-300 hover:text-primary dark:hover:text-primary text-sm font-medium" href="contact.html">Contact</a>
+        <a class="text-gray-600 dark:text-gray-300 hover:text-primary text-sm font-medium" href="index.html">Home</a>
+        <a class="text-gray-600 dark:text-gray-300 hover:text-primary text-sm font-medium" href="profile.html">About</a>
+        <a class="text-gray-600 dark:text-gray-300 hover:text-primary text-sm font-medium" href="projects.html">Projects</a>
+        <a class="text-gray-600 dark:text-gray-300 hover:text-primary text-sm font-medium" href="certificates.html">Certificates</a>
+        <a class="text-gray-600 dark:text-gray-300 hover:text-primary text-sm font-medium" href="skills.html">Skills</a>
+        <a class="text-gray-600 dark:text-gray-300 hover:text-primary text-sm font-medium" href="contact.html">Contact</a>
       </div>
 
       <!-- Mobile Menu Button -->
       <div class="md:hidden">
-        <button id="menu-btn" class="text-gray-600 dark:text-gray-300 focus:outline-none">
-          <span class="material-symbols-outlined">menu</span>
+        <button id="menu-btn" class="text-gray-600 dark:text-gray-300 focus:outline-none transition-transform duration-200 active:scale-90">
+          <span class="material-symbols-outlined text-3xl">menu</span>
         </button>
       </div>
     </div>
 
     <!-- Mobile Menu Links -->
-    <div id="mobile-menu" class="hidden flex-col gap-4 mt-2 pb-4 md:hidden">
-      <a class="text-gray-600 dark:text-gray-300 hover:text-primary dark:hover:text-primary text-sm font-medium" href="index.html">Home</a>
-      <a class="text-gray-600 dark:text-gray-300 hover:text-primary dark:hover:text-primary text-sm font-medium" href="profile.html">About</a>
-      <a class="text-gray-600 dark:text-gray-300 hover:text-primary dark:hover:text-primary text-sm font-medium" href="projects.html">Projects</a>
-      <a class="text-gray-600 dark:text-gray-300 hover:text-primary dark:hover:text-primary text-sm font-medium" href="certificates.html">Certificates</a>
-      <a class="text-gray-600 dark:text-gray-300 hover:text-primary dark:hover:text-primary text-sm font-medium" href="skills.html">Skills</a>
-      <a class="text-gray-600 dark:text-gray-300 hover:text-primary dark:hover:text-primary text-sm font-medium" href="contact.html">Contact</a>
+    <div id="mobile-menu"
+         class="hidden flex-col items-center gap-5 py-6 md:hidden bg-background-light/95 dark:bg-background-dark/95 rounded-xl mt-2 shadow-lg transform origin-top scale-y-0 opacity-0 transition-all duration-300">
+      <a href="index.html" class="flex items-center gap-2 text-gray-800 dark:text-gray-200 hover:text-primary transition-all duration-200 text-base font-medium">
+        <span class="material-symbols-outlined text-primary">home</span> Home
+      </a>
+      <a href="profile.html" class="flex items-center gap-2 text-gray-800 dark:text-gray-200 hover:text-primary transition-all duration-200 text-base font-medium">
+        <span class="material-symbols-outlined text-primary">person</span> About
+      </a>
+      <a href="projects.html" class="flex items-center gap-2 text-gray-800 dark:text-gray-200 hover:text-primary transition-all duration-200 text-base font-medium">
+        <span class="material-symbols-outlined text-primary">work</span> Projects
+      </a>
+      <a href="certificates.html" class="flex items-center gap-2 text-gray-800 dark:text-gray-200 hover:text-primary transition-all duration-200 text-base font-medium">
+        <span class="material-symbols-outlined text-primary">verified</span> Certificates
+      </a>
+      <a href="skills.html" class="flex items-center gap-2 text-gray-800 dark:text-gray-200 hover:text-primary transition-all duration-200 text-base font-medium">
+        <span class="material-symbols-outlined text-primary">bolt</span> Skills
+      </a>
+      <a href="contact.html" class="flex items-center gap-2 text-gray-800 dark:text-gray-200 hover:text-primary transition-all duration-200 text-base font-medium">
+        <span class="material-symbols-outlined text-primary">call</span> Contact
+      </a>
     </div>
   </div>
 </header>
 
-<!-- Add this just before </body> -->
 <br><br>
          <div class="layout-container flex h-full grow flex-col">
             <div class="px-4 md:px-10 lg:px-20 xl:px-40 flex flex-1 justify-center py-5">
@@ -169,10 +181,27 @@
   const mobileMenu = document.getElementById("mobile-menu");
 
   menuBtn.addEventListener("click", () => {
+    const isHidden = mobileMenu.classList.contains("hidden");
     mobileMenu.classList.toggle("hidden");
-    menuBtn.querySelector("span").textContent =
-      mobileMenu.classList.contains("hidden") ? "menu" : "close";
+
+    // Animation toggle
+    if (isHidden) {
+      setTimeout(() => {
+        mobileMenu.classList.remove("scale-y-0", "opacity-0");
+        mobileMenu.classList.add("scale-y-100", "opacity-100");
+      }, 10);
+      menuBtn.querySelector("span").textContent = "close";
+    } else {
+      mobileMenu.classList.remove("scale-y-100", "opacity-100");
+      mobileMenu.classList.add("scale-y-0", "opacity-0");
+      setTimeout(() => {
+        mobileMenu.classList.add("hidden");
+      }, 300);
+      menuBtn.querySelector("span").textContent = "menu";
+    }
   });
-      </script>
+</script>
+
+<!-- Add this just before </body> -->
    </body>
 </html>
