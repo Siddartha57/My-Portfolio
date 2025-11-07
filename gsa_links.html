@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html class="dark" lang="en">
+<head>
+<meta charset="utf-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>Gemini Control Center</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;700&display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined" rel="stylesheet"/>
+
+<script id="tailwind-config">
+tailwind.config = {
+  darkMode: "class",
+  theme: {
+    extend: {
+      colors: {
+        "primary": "#0db9f2",
+        "background-dark": "#101e22",
+      },
+      fontFamily: {
+        "display": ["Space Grotesk", "sans-serif"]
+      },
+      boxShadow: {
+        'glow-primary': '0 0 15px rgba(13,185,242,0.5)',
+        'glow-primary-bright': '0 0 25px rgba(13,185,242,0.8)'
+      }
+    },
+  },
+}
+</script>
+
+<style>
+body {
+  background-color: #101e22;
+  background-image: radial-gradient(circle at top right, #4D4DFF20, transparent 40%),
+                    radial-gradient(circle at bottom left, #BC13FE20, transparent 40%);
+  font-family: 'Space Grotesk', sans-serif;
+  overflow-x: hidden;
+}
+.glow {
+  animation: glowPulse 1.5s infinite alternate;
+}
+@keyframes glowPulse {
+  0% { box-shadow: 0 0 10px rgba(13,185,242,0.4); }
+  100% { box-shadow: 0 0 25px rgba(13,185,242,0.8); }
+}
+.activate-logo {
+  opacity: 0;
+  transform: scale(0.8);
+  transition: all 1s ease-in-out;
+}
+.activate-logo.active {
+  opacity: 1;
+  transform: scale(1);
+  animation: logoPulse 2s ease-in-out infinite alternate;
+}
+@keyframes logoPulse {
+  0% { filter: drop-shadow(0 0 5px #0db9f2); }
+  100% { filter: drop-shadow(0 0 25px #0db9f2); }
+}
+</style>
+</head>
+
+<body class="font-display text-white">
+<div class="relative flex min-h-screen flex-col bg-background-dark overflow-hidden">
+  <header class="flex items-center justify-between p-4">
+    <div class="flex size-12"></div>
+    <h1 class="text-lg font-bold text-center flex-1">Gemini Control Center</h1>
+    <div class="flex w-12 justify-end">
+      <button id="toggle-sound" class="cursor-pointer text-white hover:text-primary">
+        <span class="material-symbols-outlined">volume_up</span>
+      </button>
+    </div>
+  </header>
+
+  <main class="flex-grow flex flex-col justify-center items-center text-center">
+    <h2 class="text-[28px] font-bold leading-tight mb-6 px-4">Activate all systems to unlock Gemini's full potential.</h2>
+
+    <div class="w-full max-w-[480px] px-4 mb-6">
+      <div class="flex justify-between text-sm mb-2">
+        <span>Activation Progress</span>
+        <span id="progress-text" class="text-primary font-bold">0%</span>
+      </div>
+      <div class="rounded-full bg-primary/20 h-2">
+        <div id="progress-bar" class="h-2 rounded-full bg-primary transition-all duration-500" style="width: 0%;"></div>
+      </div>
+    </div>
+
+    <div id="button-container" class="w-full max-w-[480px] flex flex-col gap-4 px-4">
+      <button class="control-btn" data-url="https://aiskillshouse.com/student/qr-mediator.html?uid=4646&promptId=22">Creative Writing Assistant</button>
+      <button class="control-btn" data-url="https://aiskillshouse.com/student/qr-mediator.html?uid=4646&promptId=21">Code Generation</button>
+      <button class="control-btn" data-url="https://aiskillshouse.com/student/qr-mediator.html?uid=4646&promptId=20">Data Analysis & Insights</button>
+      <button class="control-btn" data-url="https://aiskillshouse.com/student/qr-mediator.html?uid=4646&promptId=19">Language Translation</button>
+      <button class="control-btn" data-url="https://aiskillshouse.com/student/qr-mediator.html?uid=4646&promptId=18">Educational Content Creator</button>
+    </div>
+
+    <div id="final-message" class="mt-12 text-xl font-bold opacity-0 transition-all duration-700"></div>
+    <div id="gemini-logo" class="mt-6 text-primary text-5xl font-bold activate-logo">☄️ GEMINI ☄️</div>
+  </main>
+
+  <footer class="py-6 text-center text-sm text-white/50">
+    Powered by Siva Siddartha Reddy — Google Student Ambassador
+  </footer>
+</div>
+
+<!-- Sounds -->
+<audio id="click-sound" src="https://assets.mixkit.co/sfx/preview/mixkit-sci-fi-interface-click-903.mp3"></audio>
+<audio id="complete-sound" src="https://assets.mixkit.co/sfx/preview/mixkit-magic-sparkle-905.mp3"></audio>
+
+<script>
+document.addEventListener('DOMContentLoaded', () => {
+  const buttons = document.querySelectorAll('.control-btn');
+  const clickSound = document.getElementById('click-sound');
+  const completeSound = document.getElementById('complete-sound');
+  const progressBar = document.getElementById('progress-bar');
+  const progressText = document.getElementById('progress-text');
+  const finalMessage = document.getElementById('final-message');
+  const geminiLogo = document.getElementById('gemini-logo');
+  const soundToggle = document.getElementById('toggle-sound');
+
+  let soundEnabled = true;
+  let activatedCount = 0;
+  const totalButtons = buttons.length;
+
+  soundToggle.addEventListener('click', () => {
+    soundEnabled = !soundEnabled;
+    soundToggle.innerHTML = soundEnabled 
+      ? '<span class="material-symbols-outlined">volume_up</span>'
+      : '<span class="material-symbols-outlined">volume_off</span>';
+  });
+
+  buttons.forEach((btn, i) => {
+    btn.classList.add(
+      'cursor-pointer', 'rounded-lg', 'h-14', 'px-5',
+      'bg-primary/20', 'text-white', 'font-bold', 'border', 'border-primary',
+      'shadow-glow-primary', 'transition-all', 'duration-300',
+      'hover:scale-[1.03]', 'hover:shadow-glow-primary-bright', 'active:scale-100'
+    );
+
+    btn.addEventListener('click', () => {
+      if (!btn.classList.contains('glow')) {
+        btn.classList.add('glow', 'bg-primary/30');
+        activatedCount++;
+        const progress = Math.round((activatedCount / totalButtons) * 100);
+        progressBar.style.width = `${progress}%`;
+        progressText.textContent = `${progress}%`;
+
+        if (soundEnabled) {
+          clickSound.currentTime = 0;
+          clickSound.play().catch(e => console.warn("Audio play blocked:", e));
+        }
+
+        const url = btn.getAttribute('data-url');
+        if (url) {
+          window.open(url, '_blank');
+        }
+
+        if (activatedCount === totalButtons) {
+          if (soundEnabled) {
+            completeSound.currentTime = 0;
+            completeSound.play();
+          }
+          setTimeout(() => {
+            geminiLogo.classList.add('active');
+            finalMessage.style.opacity = 1;
+            finalMessage.innerHTML = '✅ System Activated — You’ve Unlocked the Full Power of Gemini 🚀✨';
+          }, 800);
+        }
+      }
+    });
+  });
+});
+</script>
+</body>
+</html>

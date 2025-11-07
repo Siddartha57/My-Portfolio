@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html class="dark" lang="en">
+   <head>
+      <meta charset="utf-8"/>
+      <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+      <title>Siva Siddartha Reddy - Portfolio</title>
+      <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+      <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&amp;display=swap" rel="stylesheet"/>
+      <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined" rel="stylesheet"/>
+      <script id="tailwind-config">
+         tailwind.config = {
+             darkMode: "class",
+             theme: {
+                 extend: {
+                     colors: {
+                         "primary": "#1349ec",
+                         "background-light": "#f6f6f8",
+                         "background-dark": "#101522",
+                     },
+                     fontFamily: {
+                         "display": ["Inter", "sans-serif"]
+                     },
+                     borderRadius: { "DEFAULT": "0.25rem", "lg": "0.5rem", "xl": "0.75rem", "full": "9999px" },
+                 },
+             },
+         }
+      </script>
+      <style>
+         .material-symbols-outlined {
+         font-variation-settings:
+         'FILL' 0,
+         'wght' 400,
+         'GRAD' 0,
+         'opsz' 24
+         }
+      </style>
+   </head>
+   <body class="bg-background-light dark:bg-background-dark font-display">
+      <div class="relative flex min-h-screen w-full flex-col group/design-root overflow-x-hidden">
+         <header class="fixed top-0 left-0 right-0 z-50 bg-background-light/80 dark:bg-background-dark/80 backdrop-blur-sm shadow-sm">
+            <div class="container mx-auto px-4 sm:px-6 lg:px-8">
+               <div class="flex items-center justify-between h-16">
+                  <!-- Logo + Name -->
+                  <div class="flex items-center gap-4 text-gray-900 dark:text-white">
+                     <div class="size-6 text-primary">
+                        <svg fill="none" viewBox="0 0 48 48" xmlns="http://www.w3.org/2000/svg">
+                           <path clip-rule="evenodd" d="M24 18.4228L42 11.475V34.3663C42 34.7796 41.7457 35.1504 41.3601 35.2992L24 42V18.4228Z" fill="currentColor" fill-rule="evenodd"></path>
+                           <path clip-rule="evenodd" d="M24 8.18819L33.4123 11.574L24 15.2071L14.5877 11.574L24 8.18819ZM9 15.8487L21 20.4805V37.6263L9 32.9945V15.8487ZM27 37.6263V20.4805L39 15.8487V32.9945L27 37.6263ZM25.354 2.29885C24.4788 1.98402 23.5212 1.98402 22.646 2.29885L4.98454 8.65208C3.7939 9.08038 3 10.2097 3 11.475V34.3663C3 36.0196 4.01719 37.5026 5.55962 38.098L22.9197 44.7987C23.6149 45.0671 24.3851 45.0671 25.0803 44.7987L42.4404 38.098C43.9828 37.5026 45 36.0196 45 34.3663V11.475C45 10.2097 44.2061 9.08038 43.0155 8.65208L25.354 2.29885Z" fill="currentColor" fill-rule="evenodd"></path>
+                        </svg>
+                     </div>
+                     <h2 class="text-lg font-bold leading-tight tracking-[-0.015em]">Siva Siddartha Reddy</h2>
+                  </div>
+                  <!-- Desktop Menu -->
+                  <div class="hidden md:flex items-center gap-8">
+                     <a class="text-gray-600 dark:text-gray-300 hover:text-primary text-sm font-medium" href="index.html">Home</a>
+                     <a class="text-gray-600 dark:text-gray-300 hover:text-primary text-sm font-medium" href="profile.html">About</a>
+                     <a class="text-gray-600 dark:text-gray-300 hover:text-primary text-sm font-medium" href="projects.html">Projects</a>
+                     <a class="text-gray-600 dark:text-gray-300 hover:text-primary text-sm font-medium" href="certificates.html">Certificates</a>
+                     <a class="text-gray-600 dark:text-gray-300 hover:text-primary text-sm font-medium" href="skills.html">Skills</a>
+                     <a class="text-gray-600 dark:text-gray-300 hover:text-primary text-sm font-medium" href="contact.html">Contact</a>
+                  </div>
+                  <!-- Mobile Menu Button -->
+                  <div class="md:hidden">
+                     <button id="menu-btn" class="text-gray-600 dark:text-gray-300 focus:outline-none transition-transform duration-200 active:scale-90">
+                     <span class="material-symbols-outlined text-3xl">menu</span>
+                     </button>
+                  </div>
+               </div>
+               <!-- Mobile Menu Links -->
+               <div id="mobile-menu"
+                  class="hidden flex-col items-center gap-5 py-6 md:hidden bg-background-light/95 dark:bg-background-dark/95 rounded-xl mt-2 shadow-lg transform origin-top scale-y-0 opacity-0 transition-all duration-300">
+                  <a href="index.html" class="flex items-center gap-2 text-gray-800 dark:text-gray-200 hover:text-primary transition-all duration-200 text-base font-medium">
+                  <span class="material-symbols-outlined text-primary">home</span> Home
+                  </a><br>
+                  <a href="profile.html" class="flex items-center gap-2 text-gray-800 dark:text-gray-200 hover:text-primary transition-all duration-200 text-base font-medium">
+                  <span class="material-symbols-outlined text-primary">person</span> About
+                  </a><br>
+                  <a href="projects.html" class="flex items-center gap-2 text-gray-800 dark:text-gray-200 hover:text-primary transition-all duration-200 text-base font-medium">
+                  <span class="material-symbols-outlined text-primary">work</span> Projects
+                  </a><br>
+                  <a href="certificates.html" class="flex items-center gap-2 text-gray-800 dark:text-gray-200 hover:text-primary transition-all duration-200 text-base font-medium">
+                  <span class="material-symbols-outlined text-primary">verified</span> Certificates
+                  </a><br>
+                  <a href="skills.html" class="flex items-center gap-2 text-gray-800 dark:text-gray-200 hover:text-primary transition-all duration-200 text-base font-medium">
+                  <span class="material-symbols-outlined text-primary">bolt</span> Skills
+                  </a><br>
+                  <a href="contact.html" class="flex items-center gap-2 text-gray-800 dark:text-gray-200 hover:text-primary transition-all duration-200 text-base font-medium">
+                  <span class="material-symbols-outlined text-primary">call</span> Contact
+                  </a><br>
+               </div>
+            </div>
+         </header><br><br>
+         <main class="flex-grow">
+            <div class="layout-container flex h-full grow flex-col">
+                <div class="px-4 sm:px-8 md:px-20 lg:px-40 flex flex-1 justify-center py-5">
+                <div class="layout-content-container flex flex-col max-w-5xl flex-1">
+                    <h2 class="text-gray-900 dark:text-white text-3xl font-bold tracking-tight px-4 pb-3 pt-5 text-center">My Tech Stack</h2>
+                    <p class="text-gray-600 dark:text-gray-400 text-center mb-10">Technologies I work with to build amazing web applications.</p>
+                    <div class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 gap-6 p-4">
+                        <div class="flex flex-col items-center justify-center gap-3 rounded-xl bg-white dark:bg-background-dark border border-gray-200 dark:border-gray-800 p-6 transition-transform duration-300 hover:scale-105 hover:shadow-lg dark:hover:shadow-primary/20">
+                            <img class="h-16 w-16" data-alt="HTML5 logo" src="https://static.vecteezy.com/system/resources/previews/001/416/705/original/html5-emblem-orange-shield-and-white-text-vector.jpg"/>
+                            <h3 class="text-gray-900 dark:text-white text-lg font-semibold">HTML</h3>
+                        </div>
+                        <div class="flex flex-col items-center justify-center gap-3 rounded-xl bg-white dark:bg-background-dark border border-gray-200 dark:border-gray-800 p-6 transition-transform duration-300 hover:scale-105 hover:shadow-lg dark:hover:shadow-primary/20">
+                            <img class="h-16 w-16" data-alt="CSS3 logo" src="https://tse2.mm.bing.net/th/id/OIP.eFMoxn9tHn5OaEuH9MO3agHaHa?cb=12ucfimg=1&w=1024&h=1024&rs=1&pid=ImgDetMain&o=7&rm=3"/>
+                            <h3 class="text-gray-900 dark:text-white text-lg font-semibold">CSS</h3>
+                        </div>
+                        <div class="flex flex-col items-center justify-center gap-3 rounded-xl bg-white dark:bg-background-dark border border-gray-200 dark:border-gray-800 p-6 transition-transform duration-300 hover:scale-105 hover:shadow-lg dark:hover:shadow-primary/20">
+                            <img class="h-16 w-16" data-alt="JavaScript logo" src="https://tse4.mm.bing.net/th/id/OIP.ZsFnOPCnYcgb58qxEezb2QAAAA?cb=12ucfimg=1&w=300&h=300&rs=1&pid=ImgDetMain&o=7&rm=3"/>
+                            <h3 class="text-gray-900 dark:text-white text-lg font-semibold">JavaScript</h3>
+                        </div>
+                        <div class="flex flex-col items-center justify-center gap-3 rounded-xl bg-white dark:bg-background-dark border border-gray-200 dark:border-gray-800 p-6 transition-transform duration-300 hover:scale-105 hover:shadow-lg dark:hover:shadow-primary/20">
+                            <img class="h-16 w-16" data-alt="Python logo" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCDSoJhggXCQg45_J-_-K-mKGaPQepZ-hN4AQfQLXANXYD8Fxen7DCRcWPqenoRTiJOki3XVdNB_MCFoD4lmfhcnSq4yvs6g5KJIoUhy5c7a0pOrLofLOcRMcBgzd_OQ0eQAD7V91xFcmvPBo9WQ168VT2ABmb408o1j0aEBFAmr76EnQZ4N0x5uEzLl1zxL4co50SrIgUezK8KzKKLvXPLKbm96ypiVsFcXt00dNCdcVgTfIHtbeDczcfvbxff6hpEGmINFn7_qIw"/>
+                            <h3 class="text-gray-900 dark:text-white text-lg font-semibold">Python</h3>
+                        </div>
+                        <div class="flex flex-col items-center justify-center gap-3 rounded-xl bg-white dark:bg-background-dark border border-gray-200 dark:border-gray-800 p-6 transition-transform duration-300 hover:scale-105 hover:shadow-lg dark:hover:shadow-primary/20">
+                            <img class="h-16 w-16" data-alt="Flask logo" src="https://tse4.mm.bing.net/th/id/OIP.AubyZyNLVNXTZdBBxH5uBQHaHa?cb=12ucfimg=1&rs=1&pid=ImgDetMain&o=7&rm=3"/>
+                            <h3 class="text-gray-900 dark:text-white text-lg font-semibold">Flask</h3>
+                        </div>
+                        <div class="flex flex-col items-center justify-center gap-3 rounded-xl bg-white dark:bg-background-dark border border-gray-200 dark:border-gray-800 p-6 transition-transform duration-300 hover:scale-105 hover:shadow-lg dark:hover:shadow-primary/20">
+                            <img class="h-16 w-16" data-alt="Django logo" src="https://seeklogo.com/images/D/django-logo-F46C1DD95E-seeklogo.com.png"/>
+                            <h3 class="text-gray-900 dark:text-white text-lg font-semibold">Django</h3>
+                        </div>
+                        <div class="flex flex-col items-center justify-center gap-3 rounded-xl bg-white dark:bg-background-dark border border-gray-200 dark:border-gray-800 p-6 transition-transform duration-300 hover:scale-105 hover:shadow-lg dark:hover:shadow-primary/20">
+                            <img class="h-16 w-16" data-alt="MongoDB logo" src="https://res.cloudinary.com/apideck/image/upload/w_196,f_auto/v1618074600/icons/fastapi.png"/>
+                            <h3 class="text-gray-900 dark:text-white text-lg font-semibold">Fast API</h3>
+                        </div>
+                        <!-- <div class="flex flex-col items-center justify-center gap-3 rounded-xl bg-white dark:bg-background-dark border border-gray-200 dark:border-gray-800 p-6 transition-transform duration-300 hover:scale-105 hover:shadow-lg dark:hover:shadow-primary/20">
+                            <img class="h-16 w-16 dark:invert" data-alt="Express.js logo" src="https://lh3.googleusercontent.com/aida-public/AB6AXuD_fvEs1yICWgjBlTQ_FVXB55TQgvE3W8GsQAiqnkYyEAtgyUW66anPxxm1SX55Hrqx4jChfE2RzNph9S5u1XNDbQJAj3qZBl3SM4y3CWbmmey0YXdYZjtGpjiyyIz8xFLao14B8kQ-M4K9gCRYeFGM2WDuz7CFPhPBu_k15Ect-aKxfxtgor86zGXb5BCSMtLoEj17_F63DpfVvSBSHyivHZRpGO3X4dKy_J-lSOUmOdguGh03irN7cvXSMg7fJylnvD9B1NCmhhw"/>
+                            <h3 class="text-gray-900 dark:text-white text-lg font-semibold">Express.js</h3>
+                        </div> -->
+                        <div class="flex flex-col items-center justify-center gap-3 rounded-xl bg-white dark:bg-background-dark border border-gray-200 dark:border-gray-800 p-6 transition-transform duration-300 hover:scale-105 hover:shadow-lg dark:hover:shadow-primary/20">
+                            <img class="h-16 w-16" data-alt="React logo" src="https://www.pngkit.com/png/detail/80-804117_react-logo-react-native-icon-png.png"/>
+                            <h3 class="text-gray-900 dark:text-white text-lg font-semibold">React</h3>
+                        </div>
+                        <!-- <div class="flex flex-col items-center justify-center gap-3 rounded-xl bg-white dark:bg-background-dark border border-gray-200 dark:border-gray-800 p-6 transition-transform duration-300 hover:scale-105 hover:shadow-lg dark:hover:shadow-primary/20">
+                            <img class="h-16 w-16" data-alt="Node.js logo" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBB0ObAgPxA-J4Exp3UfSlNvfZeDq_aKCAZb-oAX3A50_5lNd8WglaJ8HNfxDRhmqLN40iGiWVsA_Nh6-bOV4KgW_R0HfjTQZ_0CyiyGYntWPV3TFrFsNzBktvcOi9sfAMpZgMsOz9j3G4_enFX6rWxxlZuJMzRRsH6jEnvNbuzQxc_6BzYMMMqutmFOBGJW4jgrqxaFryQskWULZJRd2FV2yyHHXqqsX2YMVwQ0o_3IVC6pCmaisZos6FA16M0J_dwlirgFNojlxE"/>
+                            <h3 class="text-gray-900 dark:text-white text-lg font-semibold">Node.js</h3>
+                        </div> -->
+                    </div>
+                </div>
+                </div>
+            </div>
+        </div>
+    </main>
+    <script>
+         const menuBtn = document.getElementById("menu-btn");
+         const mobileMenu = document.getElementById("mobile-menu");
+         
+         menuBtn.addEventListener("click", () => {
+           const isHidden = mobileMenu.classList.contains("hidden");
+           mobileMenu.classList.toggle("hidden");
+         
+           // Animation toggle
+           if (isHidden) {
+             setTimeout(() => {
+               mobileMenu.classList.remove("scale-y-0", "opacity-0");
+               mobileMenu.classList.add("scale-y-100", "opacity-100");
+             }, 10);
+             menuBtn.querySelector("span").textContent = "close";
+           } else {
+             mobileMenu.classList.remove("scale-y-100", "opacity-100");
+             mobileMenu.classList.add("scale-y-0", "opacity-0");
+             setTimeout(() => {
+               mobileMenu.classList.add("hidden");
+             }, 300);
+             menuBtn.querySelector("span").textContent = "menu";
+           }
+         });
+      </script>
+   </body>
+</html>
